@@ -44,3 +44,10 @@ ann.fit(X_train, Y_train, batch_size=32, epochs=20)
 
 # Predict
 y_pred = ann.predict(X_test)
+y_pred = (y_pred > 0.5)
+# Checking accuracy
+from sklearn.metrics import confusion_matrix, accuracy_score
+
+cm = confusion_matrix(Y_test, y_pred)
+accuracy = accuracy_score(Y_test, y_pred)
+print('Matrix:\n',cm,'\n','Accuracy:\n',accuracy)
