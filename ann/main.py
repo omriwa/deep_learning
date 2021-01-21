@@ -40,4 +40,7 @@ ann.add(tf.keras.layers.Dense(units=1, activation='sigmoid'))
 ann.compile(optimizer='adam',loss='binary_crossentropy',metrics=['accuracy'])
 
 # Train ANN
-ann.fit(X_train, Y_train)
+ann.fit(X_train, Y_train, batch_size=32, epochs=20)
+
+# Predict
+y_pred = ann.predict(X_test)
