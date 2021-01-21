@@ -29,3 +29,11 @@ from sklearn.preprocessing import StandardScaler
 sc = StandardScaler()
 X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
+
+# Init ANN
+import tensorflow as tf
+
+ann = tf.keras.models.Sequential()
+ann.add(tf.keras.layers.Dense(units=6, activation='relu'))
+ann.add(tf.keras.layers.Dense(units=6, activation='relu'))
+ann.add(tf.keras.layers.Dense(units=1, activation='sigmoid'))
