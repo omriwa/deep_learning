@@ -25,9 +25,8 @@ test_set = train_datagen.flow_from_directory(
 )
 
 # Creating cnn
-from tf.keras.models import Sequential
-import tf.keras.layers as layers
-
+Sequential = tf.keras.models.Sequential
+layers = tf.keras.layers
 cnn = Sequential()
 cnn.add(layers.Conv2D(filters=32, kernel_size=3, input_shape=[64, 64, 3], activation='relu'))
 
@@ -47,5 +46,5 @@ cnn.add(layers.Dense(units=128, activation='relu'))
 cnn.add(layers.Dense(units=1, activation='sigmoid'))
 
 # Training the CNN
-cnn.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accurecy'])
+cnn.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 cnn.fit(x=training_set,validation_data=test_set,epochs=25)
